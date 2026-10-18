@@ -92,3 +92,4 @@
   .new-note span { font-size: 10px; }
   .new-note small { font-size: 8px; }
 }
+.note-top{justify-content:flex-end}
