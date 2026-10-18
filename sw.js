@@ -1,5 +1,5 @@
-const CACHE = 'little-wins-shell-v1';
-const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+const CACHE = 'little-wins-shell-v2';
+const ASSETS = ['./', './index.html', './style.css', './scattered-notes.css', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
@@ -13,3 +13,5 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(async () => (await caches.match(event.request)) || (event.request.mode === 'navigate' ? await caches.match('./index.html') : Response.error())));
 });
+
+

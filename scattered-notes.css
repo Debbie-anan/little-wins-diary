@@ -1,0 +1,94 @@
+/* A wall of hand-pinned little wins. Each row grows with its longest note. */
+.notes {
+  gap: 58px 42px;
+  padding: 26px 22px 100px;
+  align-items: start;
+  isolation: isolate;
+}
+.note {
+  width: 91%;
+  min-height: 215px;
+  border-radius: 1px 3px 8px 2px;
+  box-shadow: 3px 12px 13px -8px #73532d40;
+  transform: translateY(var(--drop, 0px)) rotate(var(--tilt));
+  transform-origin: 50% 15%;
+  padding: 29px 21px 22px;
+}
+.note:nth-child(6n + 2) { --drop: 48px; width: 89%; justify-self: end; }
+.note:nth-child(6n + 3) { --drop: 9px; width: 93%; }
+.note:nth-child(6n + 4) { --drop: 25px; justify-self: end; }
+.note:nth-child(6n + 5) { --drop: 65px; width: 88%; }
+.note:nth-child(6n) { --drop: 30px; width: 90%; justify-self: end; }
+.note:hover, .note:focus-visible {
+  transform: translateY(calc(var(--drop, 0px) - 5px)) rotate(0deg);
+  z-index: 2;
+}
+.note::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 0 0 7px 0;
+  background: linear-gradient(135deg, transparent 48%, #ffffff80 50%, #ffffffb3 68%, #78522b12);
+  pointer-events: none;
+}
+.note:nth-child(3n + 1) { border-radius: 2px 2px 38px 3px / 2px 2px 15px 3px; }
+.note:nth-child(3n + 1) .tape {
+  width: 19px;
+  height: 19px;
+  top: -10px;
+  border-radius: 50%;
+  clip-path: none;
+  background: radial-gradient(circle at 34% 27%, #ffb5a1 0 12%, #e96756 16%, #cb4e40 55%, #a73a32 80%);
+  box-shadow: 2px 5px 3px #76412645;
+  transform: translateX(-50%) rotate(-12deg);
+}
+.note:nth-child(3n + 1) .tape::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 10px;
+  background: #9a7770;
+  left: 10px;
+  top: 15px;
+  transform: rotate(-26deg);
+  z-index: -1;
+}
+.note:nth-child(3n + 2) .tape {
+  background: #e8a18cc9;
+  width: 54px;
+  height: 18px;
+  left: 65%;
+  transform: translateX(-50%) rotate(15deg);
+}
+.note:nth-child(3n) .tape { background: #c0cdb3aa; transform: translateX(-50%) rotate(-12deg); }
+.new-note {
+  --tilt: 4deg;
+  background: #fffdf440;
+  box-shadow: none;
+  border-radius: 4px;
+  min-height: 210px;
+}
+.new-note::after { display: none; }
+@media (max-width: 1150px) {
+  .notes { gap: 50px 23px; padding: 25px 15px 95px; }
+  .note { padding: 27px 17px 21px; }
+}
+@media (max-width: 820px) {
+  .notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 26px; }
+  .note:nth-child(n) { --drop: 0px; width: 92%; justify-self: start; }
+  .note:nth-child(2n) { --drop: 54px; width: 90%; justify-self: end; }
+  .note:nth-child(4n + 3) { --drop: 12px; }
+}
+@media (max-width: 560px) {
+  .notes { gap: 37px 17px; padding: 17px 9px 95px; }
+  .note:nth-child(n) { width: 96%; min-height: 187px; padding: 23px 13px 20px; }
+  .note:nth-child(2n) { --drop: 49px; width: 93%; }
+  .note-content { font-size: 12px; line-height: 1.9; }
+  .note-foot { gap: 4px; }
+  .note-foot > span:first-child { max-width: 88px; line-height: 1.6; }
+  .new-note span { font-size: 10px; }
+  .new-note small { font-size: 8px; }
+}
