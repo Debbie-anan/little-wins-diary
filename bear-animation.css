@@ -1,0 +1,32 @@
+.bear-art {
+  position: relative;
+  width: 250px;
+  aspect-ratio: 1;
+  isolation: isolate;
+  mix-blend-mode: multiply;
+}
+.bear-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  clip-path: inset(11% 8% 8% 8%);
+  transform: scale(1.2);
+  pointer-events: none;
+}
+.bear-celebrating { animation: bear-cheer-bounce 1.2s ease-in-out infinite; }
+.bear-celebrating .bear-frame {
+  opacity: 0;
+  animation: bear-pose 4.8s steps(1, end) infinite;
+  animation-delay: calc(var(--frame) * .6s);
+}
+#celebrate-animal .bear-art { width: min(290px, 100%); margin: 5px auto 15px; }
+#hero-animal .bear-art { width: 250px; transform: rotate(-5deg); }
+.friend-card .bear-art { width: 160px; margin: 0 auto; }
+@keyframes bear-pose { 0%, 12.49% { opacity: 1; } 12.5%, 100% { opacity: 0; } }
+@keyframes bear-cheer-bounce { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-5px) rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .bear-celebrating .bear-frame { opacity: 0; }
+  .bear-celebrating .bear-frame:first-child { opacity: 1; }
+}
