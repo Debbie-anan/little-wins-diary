@@ -1,5 +1,5 @@
-const CACHE = 'little-wins-shell-v5';
-const ASSETS = ['./', './index.html', './style.css', './scattered-notes.css', './bear-animation.css', './assets/bear/pose-1.jpg', './assets/bear/pose-2.jpg', './assets/bear/pose-3.jpg', './assets/bear/pose-4.jpg', './assets/bear/pose-5.jpg', './assets/bear/pose-6.jpg', './app.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+const CACHE = 'little-wins-shell-v6';
+const ASSETS = ['./', './index.html', './style.css', './scattered-notes.css', './bear-animation.css', './assets/bear/pose-1.jpg', './assets/bear/pose-2.jpg', './assets/bear/pose-3.jpg', './assets/bear/pose-4.jpg', './assets/bear/pose-5.jpg', './assets/bear/pose-6.jpg', './app.js', './manifest.webmanifest', './diary-icon-192.png', './diary-icon-512.png', './diary-icon-maskable.png', './diary-apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
